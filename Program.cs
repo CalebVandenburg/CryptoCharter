@@ -1,7 +1,12 @@
+using CryptoCharter.CoinMarketCap;
+using System.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<CMCManager>(new CMCManager(builder.Configuration["CoinMarketCap:APIKey"].ToString()));
 
 var app = builder.Build();
 
