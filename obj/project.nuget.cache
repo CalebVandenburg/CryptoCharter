@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "kD8gumwtAc0s7Jg35obNX+2Nz51/LBShQU7BVzAu7OypR6TA5P1MN3inc6rzl0cmG6nylle4HomMbNnPC1sRNg==",
+  "dgSpecHash": "isRy0HMIYekd6SoHbcv60SL88ef7pZMqw4/h0a7H/MzRUgPWk24qkEsFS+QoSpIqFaivPxDQkaPFL7sfVofEag==",
   "success": true,
   "projectFilePath": "E:\\Portfolio\\FullStack\\CryptoCharter\\CryptoCharter.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\cvandenburg\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

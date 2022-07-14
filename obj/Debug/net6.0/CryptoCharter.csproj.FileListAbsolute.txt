@@ -24,3 +24,5 @@ E:\Portfolio\FullStack\CryptoCharter\obj\Debug\net6.0\refint\CryptoCharter.dll
 E:\Portfolio\FullStack\CryptoCharter\obj\Debug\net6.0\CryptoCharter.pdb
 E:\Portfolio\FullStack\CryptoCharter\obj\Debug\net6.0\CryptoCharter.genruntimeconfig.cache
 E:\Portfolio\FullStack\CryptoCharter\obj\Debug\net6.0\ref\CryptoCharter.dll
+E:\Portfolio\FullStack\CryptoCharter\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Portfolio\FullStack\CryptoCharter\obj\Debug\net6.0\CryptoCharter.csproj.CopyComplete

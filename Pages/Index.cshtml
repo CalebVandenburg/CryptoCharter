@@ -8,3 +8,54 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<div id="graphdiv"></div>
+<script type="text/javascript">
+    window.onload = function() {
+        RenderLatestQuotesGraph();
+    }
+    function RenderLatestQuotesGraph() {
+        fetch('?handler=LatestQuotes', {
+            method: 'get'
+        })
+        .then((response) => response.text())
+        .then(data => {
+            console.log(data);
+            json = JSON.parse(data);
+            console.log(json);
+            var coinValueArray = [];
+            json.graphData.graphDataPoints.forEach(function (item, index) {
+                item.data.unshift(coinValueArray.length);
+                  coinValueArray.push(item.data);
+            });
+            g = new Dygraph(
+                // containing div
+                document.getElementById("graphdiv"),
+                //data
+                coinValueArray,
+                //options
+                {"xlabel" : `${json.graphData.xLabel}`, "ylabel": `${json.graphData.yLabel}`, "labels" : json.graphData.labels}
+            );
+            MaintainLatestQuotesGraph(g, 10000, coinValueArray);
+        });
+
+    }
+    function MaintainLatestQuotesGraph(graph, interval, coinValueArray) {
+        fetch('?handler=LatestQuotes', {
+            method: 'get'
+        })
+        .then((response) => response.text())
+        .then(data => {
+            json = JSON.parse(data);
+            json.graphData.graphDataPoints.forEach(function (item, index) {
+                item.data.unshift(coinValueArray.length);
+                coinValueArray.push(item.data);
+            });
+            graph.updateOptions({
+                  file: coinValueArray
+            });
+        });
+        setTimeout(function() {
+            MaintainLatestQuotesGraph(graph, interval, coinValueArray);
+        }, interval);
+    }
+</script>

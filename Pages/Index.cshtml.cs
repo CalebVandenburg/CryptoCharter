@@ -17,7 +17,11 @@ namespace CryptoCharter.Pages
 
         public void OnGet()
         {
-            CMCManager.GetLatest();
+        }
+        public IActionResult OnGetLatestQuotesAsync()
+        {
+            LatestQuotes latestQuotes = CMCManager.GetLatestQuotes();
+            return new JsonResult(latestQuotes);
         }
     }
 }
