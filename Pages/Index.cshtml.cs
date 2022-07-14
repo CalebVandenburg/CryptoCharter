@@ -17,7 +17,7 @@ namespace CryptoCharter.Pages
 
         public void OnGet()
         {
-
+            CMCManager.GetLatest();
         }
     }
 }

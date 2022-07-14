@@ -5,8 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
-builder.Services.AddSingleton<CMCManager>(new CMCManager(builder.Configuration["CoinMarketCap:APIKey"].ToString()));
+var urlToUse = builder.Configuration["CoinMarketCap:Debug"].ToString() == "true" ? builder.Configuration["CoinMarketCap:TestBaseURL"] : builder.Configuration["CoinMarketCap:BaseURL"];
+builder.Services.AddSingleton<CMCManager>(new CMCManager(builder.Configuration["CoinMarketCap:APIKey"], urlToUse));
 
 var app = builder.Build();
 
